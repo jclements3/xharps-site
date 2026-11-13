@@ -1,0 +1,299 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>xharp Circle of Fifths</title><style>
+:root{--bg:#f6f5f1;--fg:#1c1b19;--muted:#6c675f;--rule:#38352f;--paper:#fffefa;--line:#e2ded5;--r1:#b5281c;--r2:#2f6f8f;--t1:#f7dfda;--t2:#d9e8f0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#191816;--fg:#ebe8e1;--muted:#a29d94;--rule:#d6d2c9;--paper:#211f1c;--line:#35322d;--r1:#ef8a78;--r2:#79b8d6;--t1:#3d2622;--t2:#1f3340;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#191816;--fg:#ebe8e1;--muted:#a29d94;--rule:#d6d2c9;--paper:#211f1c;--line:#35322d;--r1:#ef8a78;--r2:#79b8d6;--t1:#3d2622;--t2:#1f3340;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,sans-serif;padding:20px 16px 40px}
+main{max-width:700px;margin:0 auto;display:grid;gap:10px}
+h1{font:500 1.4rem Georgia,serif;margin:0}
+svg{width:100%;height:auto;display:block}
+path{stroke:var(--rule);stroke-width:1.2}
+.wr{fill:var(--t1)}.wb{fill:var(--t2)}
+text{text-anchor:middle;dominant-baseline:central}
+.tr{fill:var(--r1)}.tb{fill:var(--r2)}.maj{font-weight:700;font-family:Georgia,serif}.dim{font-style:italic}
+.dr{fill:var(--r1)}.db{fill:var(--r2)}
+.sig{fill:var(--muted)}
+.hexr{fill:none;stroke:var(--r1);stroke-width:2}.hexb{fill:none;stroke:var(--r2);stroke-width:2;stroke-dasharray:5 3}
+.iring{fill:var(--paper)}.iring.on{fill:var(--fg)}.ivl{font:600 13px system-ui,sans-serif}.ivl.on{fill:var(--paper)}.pick{cursor:pointer}.sel{stroke:var(--fg);stroke-width:3.5}.ctr{font:600 13px system-ui,sans-serif}
+#rn{columns:2 300px;column-gap:24px}#rn h3{font:600 .8rem system-ui,sans-serif;color:var(--muted);margin:10px 0 2px;break-after:avoid}#rn table{border-collapse:collapse;font-size:.9rem;width:100%;break-inside:avoid}#rn table{table-layout:fixed}#rn th{width:17%}#rn td:nth-child(2){width:21%}#rn td:nth-child(3){width:32%}#rn td:nth-child(4){width:22%}#rn td:nth-child(5){width:8%}#rn th,#rn td{overflow:hidden}#tz{margin-top:10px;break-inside:avoid}#tz h3{font:600 .85rem system-ui,sans-serif;color:var(--muted);margin:0 0 4px}.tzrow{display:block}#tzsvg{width:100%;flex:none}#tz ul{font-size:.82rem;padding-left:14px}
+#tz .t{stroke:none}#tz .t.maj{fill:#f3ead8}#tz .t.min{fill:#e4e6e3}#tz .t.sel{fill:#e8b04a;stroke:none}#tz .t.nbr{fill:#e8b04a;fill-opacity:.35}
+#tz .e5,#tz .em3{stroke:var(--rule);stroke-width:1;opacity:.45}#tz .stripe{stroke-width:5;stroke-linecap:round;opacity:.75}#tz .sr{stroke:var(--r1)}#tz .sb{stroke:var(--r2)}
+#tz .tl{font:500 10px system-ui,sans-serif;text-anchor:middle;fill:var(--muted)}#tz .tl.min{font-style:italic}
+#tz .node circle{fill:var(--paper);stroke-width:3}#tz .node text{font:600 13px Georgia,serif;text-anchor:middle}
+#tz .nr circle{stroke:var(--r1)}#tz .nr text{fill:var(--r1)}#tz .nb circle{stroke:var(--r2)}#tz .nb text{fill:var(--r2)}
+#tz .node.on.nr circle{fill:var(--r1)}#tz .node.on.nb circle{fill:var(--r2)}#tz .node.on text{fill:var(--paper)}
+#tz .mk{font:700 13px system-ui,sans-serif;text-anchor:middle;fill:var(--fg)}#tz .mkbg{fill:var(--paper);stroke:var(--fg);stroke-width:1.2}
+.tznote{display:none}@media print{.tznote{display:block;break-inside:avoid;margin-top:14px;font-size:.78rem}.tznote ul{margin:0;padding-left:14px}.tznote li{line-height:1.4}#rn h3.colbrk{break-before:column}#tz ul{display:none}#tz{margin-top:6px}}#inv{margin-top:14px;font-size:.88rem}#inv h3{font:600 .85rem system-ui,sans-serif;color:var(--muted);margin:0 0 4px}#inv table{border-collapse:collapse;width:100%}#inv th,#inv td{padding:3px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:bottom}#inv thead th{font-size:.72rem;color:var(--muted);font-weight:500}#inv small{font-weight:400}#inv tbody th{font-family:Georgia,serif}#inv p{margin:6px 0 0;line-height:1.45;color:var(--fg)}#rn .nt{white-space:nowrap;font-size:.92em}#rn .nt span{font-weight:600}#rn .sp{color:var(--muted);font-size:.8rem}#rn th,#rn td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}#rn thead th{font-size:.72rem;color:var(--muted);font-weight:500}#rn tbody th{font-family:Georgia,serif}#rn td.tr,#rn td.tb{font-weight:600}#rn small{color:var(--muted);font-weight:400}#rn i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px}#rn i.dr{background:var(--r1)}#rn i.db{background:var(--r2)}.tr{color:var(--r1)}.tb{color:var(--r2)}.hint{font-size:.88rem;color:var(--muted);line-height:1.45}ul{margin:0;padding-left:18px;font-size:.88rem;line-height:1.5}
+@page{size:letter;margin:.25in}@media print{body{background:#fff;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;color-scheme:light}main{max-width:none;display:block}main>*{margin-bottom:3px}h1{font-size:1.05rem}main>svg{width:7.5in;margin:.1in auto 0}.hint{font-size:.85rem}#rn{columns:2;column-gap:.35in;break-before:page}#inv{margin-top:4px}.hint{display:none}#rn table{font-size:.8rem;width:100%}#rn th,#rn td{padding:2.5px 5px 2.5px 1px}#rn h3{margin:10px 0 2px;font-size:.85rem}#rn i{width:8px;height:8px;margin-right:2px}}</style><style>.xh{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-bottom:1.5px solid currentColor;padding-bottom:6px;margin-bottom:6px}.xh .xl{display:flex;align-items:center;gap:6px;font:800 1.35rem Helvetica,Arial,sans-serif;letter-spacing:-.02em;color:inherit;text-decoration:none}.xh h1{margin:0;flex:1}.xh .xs{font:.8rem Helvetica,Arial,sans-serif;opacity:.75}@media print{.xh{margin-bottom:2px;padding-bottom:3px}}</style></head><body><main><div class="xh"><a class="xl" href="https://xharps.com/"><svg viewBox="0 0 26 26" width="26" height="26" aria-hidden="true"><line x1="3" y1="23" x2="23" y2="3" stroke="#c0442e" stroke-width="3"/><line x1="3" y1="3" x2="23" y2="23" stroke="#2b4f8c" stroke-width="3"/></svg><b>xharp</b></a><h1>Circle of Fifths</h1><span class="xs">Free to copy and share &middot; xharps.com</span></div>
+<svg viewBox="0 0 700 700" role="img" aria-label="Circle of fifths coloured by root string"><path class="wr pick" data-pc="0" d="M272.4,60.2 A300,300 0 0 1 427.6,60.2 L405.6,142.3 A215,215 0 0 0 294.4,142.3Z"/>
+<text x="350.0" y="83.5" font-size="24.0" class="tr maj">C</text>
+<circle cx="341.0" cy="114.5" r="3.4" class="dr"/>
+<circle cx="350.0" cy="114.5" r="3.4" class="dr"/>
+<circle cx="359.0" cy="114.5" r="3.4" class="db"/>
+<path class="wb" data-pc="9" d="M294.4,142.3 A215,215 0 0 1 405.6,142.3 L387.5,209.9 A145,145 0 0 0 312.5,209.9Z"/>
+<text x="350.0" y="163.0" font-size="18.0" class="tb min">Am</text>
+<circle cx="341.0" cy="188.0" r="3.4" class="db"/>
+<circle cx="350.0" cy="188.0" r="3.4" class="dr"/>
+<circle cx="359.0" cy="188.0" r="3.4" class="dr"/>
+<path class="wb" data-pc="11" d="M312.5,209.9 A145,145 0 0 1 387.5,209.9 L373.3,263.1 A90,90 0 0 0 326.7,263.1Z"/>
+<text x="350.0" y="226.5" font-size="15.0" class="tb dim">B°</text>
+<circle cx="341.0" cy="246.5" r="3.4" class="db"/>
+<circle cx="350.0" cy="246.5" r="3.4" class="dr"/>
+<circle cx="359.0" cy="246.5" r="3.4" class="db"/>
+<text x="350.0" y="64.0" font-size="10" class="sig"></text>
+<path class="wb pick" data-pc="7" d="M427.6,60.2 A300,300 0 0 1 562.1,137.9 L502.0,198.0 A215,215 0 0 0 405.6,142.3Z"/>
+<text x="483.2" y="119.2" font-size="24.0" class="tb maj">G</text>
+<circle cx="460.0" cy="141.6" r="3.4" class="db"/>
+<circle cx="467.8" cy="146.1" r="3.4" class="db"/>
+<circle cx="475.5" cy="150.6" r="3.4" class="dr"/>
+<path class="wr" data-pc="4" d="M405.6,142.3 A215,215 0 0 1 502.0,198.0 L452.5,247.5 A145,145 0 0 0 387.5,209.9Z"/>
+<text x="443.5" y="188.1" font-size="18.0" class="tr min">Em</text>
+<circle cx="423.2" cy="205.2" r="3.4" class="dr"/>
+<circle cx="431.0" cy="209.7" r="3.4" class="db"/>
+<circle cx="438.8" cy="214.2" r="3.4" class="db"/>
+<path class="wr" data-pc="6" d="M387.5,209.9 A145,145 0 0 1 452.5,247.5 L413.6,286.4 A90,90 0 0 0 373.3,263.1Z"/>
+<text x="411.8" y="243.0" font-size="15.0" class="tr dim">F♯°</text>
+<circle cx="394.0" cy="255.9" r="3.4" class="dr"/>
+<circle cx="401.8" cy="260.4" r="3.4" class="db"/>
+<circle cx="409.5" cy="264.9" r="3.4" class="dr"/>
+<text x="493.0" y="102.3" font-size="10" class="sig">1♯</text>
+<path class="wr pick" data-pc="2" d="M562.1,137.9 A300,300 0 0 1 639.8,272.4 L557.7,294.4 A215,215 0 0 0 502.0,198.0Z"/>
+<text x="580.8" y="216.8" font-size="24.0" class="tr maj">D</text>
+<circle cx="549.4" cy="224.5" r="3.4" class="dr"/>
+<circle cx="553.9" cy="232.2" r="3.4" class="dr"/>
+<circle cx="558.4" cy="240.0" r="3.4" class="db"/>
+<path class="wb" data-pc="11" d="M502.0,198.0 A215,215 0 0 1 557.7,294.4 L490.1,312.5 A145,145 0 0 0 452.5,247.5Z"/>
+<text x="511.9" y="256.5" font-size="18.0" class="tb min">Bm</text>
+<circle cx="485.8" cy="261.2" r="3.4" class="db"/>
+<circle cx="490.3" cy="269.0" r="3.4" class="dr"/>
+<circle cx="494.8" cy="276.8" r="3.4" class="dr"/>
+<path class="wb" data-pc="1" d="M452.5,247.5 A145,145 0 0 1 490.1,312.5 L436.9,326.7 A90,90 0 0 0 413.6,286.4Z"/>
+<text x="457.0" y="288.2" font-size="15.0" class="tb dim">C♯°</text>
+<circle cx="435.1" cy="290.5" r="3.4" class="db"/>
+<circle cx="439.6" cy="298.2" r="3.4" class="dr"/>
+<circle cx="444.1" cy="306.0" r="3.4" class="db"/>
+<text x="597.7" y="207.0" font-size="10" class="sig">2♯</text>
+<path class="wb pick" data-pc="9" d="M639.8,272.4 A300,300 0 0 1 639.8,427.6 L557.7,405.6 A215,215 0 0 0 557.7,294.4Z"/>
+<text x="616.5" y="350.0" font-size="24.0" class="tb maj">A</text>
+<circle cx="585.5" cy="341.0" r="3.4" class="db"/>
+<circle cx="585.5" cy="350.0" r="3.4" class="db"/>
+<circle cx="585.5" cy="359.0" r="3.4" class="dr"/>
+<path class="wr" data-pc="6" d="M557.7,294.4 A215,215 0 0 1 557.7,405.6 L490.1,387.5 A145,145 0 0 0 490.1,312.5Z"/>
+<text x="537.0" y="350.0" font-size="18.0" class="tr min">F♯m</text>
+<circle cx="512.0" cy="341.0" r="3.4" class="dr"/>
+<circle cx="512.0" cy="350.0" r="3.4" class="db"/>
+<circle cx="512.0" cy="359.0" r="3.4" class="db"/>
+<path class="wr" data-pc="8" d="M490.1,312.5 A145,145 0 0 1 490.1,387.5 L436.9,373.3 A90,90 0 0 0 436.9,326.7Z"/>
+<text x="473.5" y="350.0" font-size="15.0" class="tr dim">G♯°</text>
+<circle cx="453.5" cy="341.0" r="3.4" class="dr"/>
+<circle cx="453.5" cy="350.0" r="3.4" class="db"/>
+<circle cx="453.5" cy="359.0" r="3.4" class="dr"/>
+<text x="636.0" y="350.0" font-size="10" class="sig">3♯</text>
+<path class="wr pick" data-pc="4" d="M639.8,427.6 A300,300 0 0 1 562.1,562.1 L502.0,502.0 A215,215 0 0 0 557.7,405.6Z"/>
+<text x="580.8" y="483.2" font-size="24.0" class="tr maj">E</text>
+<circle cx="549.4" cy="475.5" r="3.4" class="dr"/>
+<circle cx="553.9" cy="467.8" r="3.4" class="dr"/>
+<circle cx="558.4" cy="460.0" r="3.4" class="db"/>
+<path class="wb" data-pc="1" d="M557.7,405.6 A215,215 0 0 1 502.0,502.0 L452.5,452.5 A145,145 0 0 0 490.1,387.5Z"/>
+<text x="511.9" y="443.5" font-size="18.0" class="tb min">C♯m</text>
+<circle cx="485.8" cy="438.8" r="3.4" class="db"/>
+<circle cx="490.3" cy="431.0" r="3.4" class="dr"/>
+<circle cx="494.8" cy="423.2" r="3.4" class="dr"/>
+<path class="wb" data-pc="3" d="M490.1,387.5 A145,145 0 0 1 452.5,452.5 L413.6,413.6 A90,90 0 0 0 436.9,373.3Z"/>
+<text x="457.0" y="411.8" font-size="15.0" class="tb dim">D♯°</text>
+<circle cx="435.1" cy="409.5" r="3.4" class="db"/>
+<circle cx="439.6" cy="401.8" r="3.4" class="dr"/>
+<circle cx="444.1" cy="394.0" r="3.4" class="db"/>
+<text x="597.7" y="493.0" font-size="10" class="sig">4♯</text>
+<path class="wb pick" data-pc="11" d="M562.1,562.1 A300,300 0 0 1 427.6,639.8 L405.6,557.7 A215,215 0 0 0 502.0,502.0Z"/>
+<text x="483.2" y="580.8" font-size="24.0" class="tb maj">B</text>
+<circle cx="460.0" cy="558.4" r="3.4" class="db"/>
+<circle cx="467.8" cy="553.9" r="3.4" class="db"/>
+<circle cx="475.5" cy="549.4" r="3.4" class="dr"/>
+<path class="wr" data-pc="8" d="M502.0,502.0 A215,215 0 0 1 405.6,557.7 L387.5,490.1 A145,145 0 0 0 452.5,452.5Z"/>
+<text x="443.5" y="511.9" font-size="18.0" class="tr min">G♯m</text>
+<circle cx="423.2" cy="494.8" r="3.4" class="dr"/>
+<circle cx="431.0" cy="490.3" r="3.4" class="db"/>
+<circle cx="438.8" cy="485.8" r="3.4" class="db"/>
+<path class="wr" data-pc="10" d="M452.5,452.5 A145,145 0 0 1 387.5,490.1 L373.3,436.9 A90,90 0 0 0 413.6,413.6Z"/>
+<text x="411.8" y="457.0" font-size="15.0" class="tr dim">A♯°</text>
+<circle cx="394.0" cy="444.1" r="3.4" class="dr"/>
+<circle cx="401.8" cy="439.6" r="3.4" class="db"/>
+<circle cx="409.5" cy="435.1" r="3.4" class="dr"/>
+<text x="493.0" y="597.7" font-size="10" class="sig">5♯</text>
+<path class="wr pick" data-pc="6" d="M427.6,639.8 A300,300 0 0 1 272.4,639.8 L294.4,557.7 A215,215 0 0 0 405.6,557.7Z"/>
+<text x="350.0" y="616.5" font-size="16.8" class="tr maj">F♯/G♭</text>
+<circle cx="341.0" cy="585.5" r="3.4" class="dr"/>
+<circle cx="350.0" cy="585.5" r="3.4" class="dr"/>
+<circle cx="359.0" cy="585.5" r="3.4" class="db"/>
+<path class="wb" data-pc="3" d="M405.6,557.7 A215,215 0 0 1 294.4,557.7 L312.5,490.1 A145,145 0 0 0 387.5,490.1Z"/>
+<text x="350.0" y="537.0" font-size="18.0" class="tb min">E♭m</text>
+<circle cx="341.0" cy="512.0" r="3.4" class="db"/>
+<circle cx="350.0" cy="512.0" r="3.4" class="dr"/>
+<circle cx="359.0" cy="512.0" r="3.4" class="dr"/>
+<path class="wb" data-pc="5" d="M387.5,490.1 A145,145 0 0 1 312.5,490.1 L326.7,436.9 A90,90 0 0 0 373.3,436.9Z"/>
+<text x="350.0" y="473.5" font-size="15.0" class="tb dim">E♯°</text>
+<circle cx="341.0" cy="453.5" r="3.4" class="db"/>
+<circle cx="350.0" cy="453.5" r="3.4" class="dr"/>
+<circle cx="359.0" cy="453.5" r="3.4" class="db"/>
+<text x="350.0" y="636.0" font-size="10" class="sig">6♯/6♭</text>
+<path class="wb pick" data-pc="1" d="M272.4,639.8 A300,300 0 0 1 137.9,562.1 L198.0,502.0 A215,215 0 0 0 294.4,557.7Z"/>
+<text x="216.8" y="580.8" font-size="24.0" class="tb maj">D♭</text>
+<circle cx="224.5" cy="549.4" r="3.4" class="db"/>
+<circle cx="232.3" cy="553.9" r="3.4" class="db"/>
+<circle cx="240.0" cy="558.4" r="3.4" class="dr"/>
+<path class="wr" data-pc="10" d="M294.4,557.7 A215,215 0 0 1 198.0,502.0 L247.5,452.5 A145,145 0 0 0 312.5,490.1Z"/>
+<text x="256.5" y="511.9" font-size="18.0" class="tr min">B♭m</text>
+<circle cx="261.2" cy="485.8" r="3.4" class="dr"/>
+<circle cx="269.0" cy="490.3" r="3.4" class="db"/>
+<circle cx="276.8" cy="494.8" r="3.4" class="db"/>
+<path class="wr" data-pc="0" d="M312.5,490.1 A145,145 0 0 1 247.5,452.5 L286.4,413.6 A90,90 0 0 0 326.7,436.9Z"/>
+<text x="288.2" y="457.0" font-size="15.0" class="tr dim">C°</text>
+<circle cx="290.5" cy="435.1" r="3.4" class="dr"/>
+<circle cx="298.2" cy="439.6" r="3.4" class="db"/>
+<circle cx="306.0" cy="444.1" r="3.4" class="dr"/>
+<text x="207.0" y="597.7" font-size="10" class="sig">5♭</text>
+<path class="wr pick" data-pc="8" d="M137.9,562.1 A300,300 0 0 1 60.2,427.6 L142.3,405.6 A215,215 0 0 0 198.0,502.0Z"/>
+<text x="119.2" y="483.2" font-size="24.0" class="tr maj">A♭</text>
+<circle cx="141.6" cy="460.0" r="3.4" class="dr"/>
+<circle cx="146.1" cy="467.8" r="3.4" class="dr"/>
+<circle cx="150.6" cy="475.5" r="3.4" class="db"/>
+<path class="wb" data-pc="5" d="M198.0,502.0 A215,215 0 0 1 142.3,405.6 L209.9,387.5 A145,145 0 0 0 247.5,452.5Z"/>
+<text x="188.1" y="443.5" font-size="18.0" class="tb min">Fm</text>
+<circle cx="205.2" cy="423.2" r="3.4" class="db"/>
+<circle cx="209.7" cy="431.0" r="3.4" class="dr"/>
+<circle cx="214.2" cy="438.8" r="3.4" class="dr"/>
+<path class="wb" data-pc="7" d="M247.5,452.5 A145,145 0 0 1 209.9,387.5 L263.1,373.3 A90,90 0 0 0 286.4,413.6Z"/>
+<text x="243.0" y="411.8" font-size="15.0" class="tb dim">G°</text>
+<circle cx="255.9" cy="394.0" r="3.4" class="db"/>
+<circle cx="260.4" cy="401.8" r="3.4" class="dr"/>
+<circle cx="264.9" cy="409.5" r="3.4" class="db"/>
+<text x="102.3" y="493.0" font-size="10" class="sig">4♭</text>
+<path class="wb pick" data-pc="3" d="M60.2,427.6 A300,300 0 0 1 60.2,272.4 L142.3,294.4 A215,215 0 0 0 142.3,405.6Z"/>
+<text x="83.5" y="350.0" font-size="24.0" class="tb maj">E♭</text>
+<circle cx="114.5" cy="359.0" r="3.4" class="db"/>
+<circle cx="114.5" cy="350.0" r="3.4" class="db"/>
+<circle cx="114.5" cy="341.0" r="3.4" class="dr"/>
+<path class="wr" data-pc="0" d="M142.3,405.6 A215,215 0 0 1 142.3,294.4 L209.9,312.5 A145,145 0 0 0 209.9,387.5Z"/>
+<text x="163.0" y="350.0" font-size="18.0" class="tr min">Cm</text>
+<circle cx="188.0" cy="359.0" r="3.4" class="dr"/>
+<circle cx="188.0" cy="350.0" r="3.4" class="db"/>
+<circle cx="188.0" cy="341.0" r="3.4" class="db"/>
+<path class="wr" data-pc="2" d="M209.9,387.5 A145,145 0 0 1 209.9,312.5 L263.1,326.7 A90,90 0 0 0 263.1,373.3Z"/>
+<text x="226.5" y="350.0" font-size="15.0" class="tr dim">D°</text>
+<circle cx="246.5" cy="359.0" r="3.4" class="dr"/>
+<circle cx="246.5" cy="350.0" r="3.4" class="db"/>
+<circle cx="246.5" cy="341.0" r="3.4" class="dr"/>
+<text x="64.0" y="350.0" font-size="10" class="sig">3♭</text>
+<path class="wr pick" data-pc="10" d="M60.2,272.4 A300,300 0 0 1 137.9,137.9 L198.0,198.0 A215,215 0 0 0 142.3,294.4Z"/>
+<text x="119.2" y="216.7" font-size="24.0" class="tr maj">B♭</text>
+<circle cx="141.6" cy="240.0" r="3.4" class="dr"/>
+<circle cx="146.1" cy="232.2" r="3.4" class="dr"/>
+<circle cx="150.6" cy="224.5" r="3.4" class="db"/>
+<path class="wb" data-pc="7" d="M142.3,294.4 A215,215 0 0 1 198.0,198.0 L247.5,247.5 A145,145 0 0 0 209.9,312.5Z"/>
+<text x="188.1" y="256.5" font-size="18.0" class="tb min">Gm</text>
+<circle cx="205.2" cy="276.8" r="3.4" class="db"/>
+<circle cx="209.7" cy="269.0" r="3.4" class="dr"/>
+<circle cx="214.2" cy="261.2" r="3.4" class="dr"/>
+<path class="wb" data-pc="9" d="M209.9,312.5 A145,145 0 0 1 247.5,247.5 L286.4,286.4 A90,90 0 0 0 263.1,326.7Z"/>
+<text x="243.0" y="288.2" font-size="15.0" class="tb dim">A°</text>
+<circle cx="255.9" cy="306.0" r="3.4" class="db"/>
+<circle cx="260.4" cy="298.2" r="3.4" class="dr"/>
+<circle cx="264.9" cy="290.5" r="3.4" class="db"/>
+<text x="102.3" y="207.0" font-size="10" class="sig">2♭</text>
+<path class="wb pick" data-pc="5" d="M137.9,137.9 A300,300 0 0 1 272.4,60.2 L294.4,142.3 A215,215 0 0 0 198.0,198.0Z"/>
+<text x="216.7" y="119.2" font-size="24.0" class="tb maj">F</text>
+<circle cx="224.5" cy="150.6" r="3.4" class="db"/>
+<circle cx="232.2" cy="146.1" r="3.4" class="db"/>
+<circle cx="240.0" cy="141.6" r="3.4" class="dr"/>
+<path class="wr" data-pc="2" d="M198.0,198.0 A215,215 0 0 1 294.4,142.3 L312.5,209.9 A145,145 0 0 0 247.5,247.5Z"/>
+<text x="256.5" y="188.1" font-size="18.0" class="tr min">Dm</text>
+<circle cx="261.2" cy="214.2" r="3.4" class="dr"/>
+<circle cx="269.0" cy="209.7" r="3.4" class="db"/>
+<circle cx="276.8" cy="205.2" r="3.4" class="db"/>
+<path class="wr" data-pc="4" d="M247.5,247.5 A145,145 0 0 1 312.5,209.9 L326.7,263.1 A90,90 0 0 0 286.4,286.4Z"/>
+<text x="288.2" y="243.0" font-size="15.0" class="tr dim">E°</text>
+<circle cx="290.5" cy="264.9" r="3.4" class="dr"/>
+<circle cx="298.2" cy="260.4" r="3.4" class="db"/>
+<circle cx="306.0" cy="255.9" r="3.4" class="dr"/>
+<text x="207.0" y="102.3" font-size="10" class="sig">1♭</text>
+<path class="iring" id="iw0" d="M261.2,18.7 A343,343 0 0 1 438.8,18.7 L428.2,58.3 A302,302 0 0 0 271.8,58.3Z"/>
+<text x="350.0" y="27.5" id="iv0" class="ivl">·</text>
+<path class="iring" id="iw1" d="M438.8,18.7 A343,343 0 0 1 592.5,107.5 L563.5,136.5 A302,302 0 0 0 428.2,58.3Z"/>
+<text x="511.2" y="70.7" id="iv1" class="ivl">·</text>
+<path class="iring" id="iw2" d="M592.5,107.5 A343,343 0 0 1 681.3,261.2 L641.7,271.8 A302,302 0 0 0 563.5,136.5Z"/>
+<text x="629.3" y="188.8" id="iv2" class="ivl">·</text>
+<path class="iring" id="iw3" d="M681.3,261.2 A343,343 0 0 1 681.3,438.8 L641.7,428.2 A302,302 0 0 0 641.7,271.8Z"/>
+<text x="672.5" y="350.0" id="iv3" class="ivl">·</text>
+<path class="iring" id="iw4" d="M681.3,438.8 A343,343 0 0 1 592.5,592.5 L563.5,563.5 A302,302 0 0 0 641.7,428.2Z"/>
+<text x="629.3" y="511.2" id="iv4" class="ivl">·</text>
+<path class="iring" id="iw5" d="M592.5,592.5 A343,343 0 0 1 438.8,681.3 L428.2,641.7 A302,302 0 0 0 563.5,563.5Z"/>
+<text x="511.2" y="629.3" id="iv5" class="ivl">·</text>
+<path class="iring" id="iw6" d="M438.8,681.3 A343,343 0 0 1 261.2,681.3 L271.8,641.7 A302,302 0 0 0 428.2,641.7Z"/>
+<text x="350.0" y="672.5" id="iv6" class="ivl">·</text>
+<path class="iring" id="iw7" d="M261.2,681.3 A343,343 0 0 1 107.5,592.5 L136.5,563.5 A302,302 0 0 0 271.8,641.7Z"/>
+<text x="188.8" y="629.3" id="iv7" class="ivl">·</text>
+<path class="iring" id="iw8" d="M107.5,592.5 A343,343 0 0 1 18.7,438.8 L58.3,428.2 A302,302 0 0 0 136.5,563.5Z"/>
+<text x="70.7" y="511.2" id="iv8" class="ivl">·</text>
+<path class="iring" id="iw9" d="M18.7,438.8 A343,343 0 0 1 18.7,261.2 L58.3,271.8 A302,302 0 0 0 58.3,428.2Z"/>
+<text x="27.5" y="350.0" id="iv9" class="ivl">·</text>
+<path class="iring" id="iw10" d="M18.7,261.2 A343,343 0 0 1 107.5,107.5 L136.5,136.5 A302,302 0 0 0 58.3,271.8Z"/>
+<text x="70.7" y="188.7" id="iv10" class="ivl">·</text>
+<path class="iring" id="iw11" d="M107.5,107.5 A343,343 0 0 1 261.2,18.7 L271.8,58.3 A302,302 0 0 0 136.5,136.5Z"/>
+<text x="188.7" y="70.7" id="iv11" class="ivl">·</text>
+<path class="hexr" d="M350.0,282.0 L408.9,316.0 L408.9,384.0 L350.0,418.0 L291.1,384.0 L291.1,316.0Z"/>
+<path class="hexb" d="M384.0,291.1 L418.0,350.0 L384.0,408.9 L316.0,408.9 L282.0,350.0 L316.0,291.1Z"/>
+<text x="350" y="342" class="ctr tr">C shape</text><text x="350" y="360" class="ctr tb">C♯ shape</text></svg>
+<div class="hint">Every chord type on <b id="rootname">C</b> (tap a major key on the circle to change it; in print, any red root uses these colours and a blue root swaps them). Numerals are relative to the root. Dots = string colour of each chord tone, root first; split = notes on the root's row + notes on the other row.</div>
+<section id="inv"><h3>Inversions in Roman numerals</h3>
+<table><thead><tr><th></th><th>Bass</th><th>Figured bass<br><small>triad · 7th</small></th><th>Inversion no.<br><small>xharp house style</small></th><th>Slash<br><small>jazz / pop</small></th><th>Example in C</th></tr></thead>
+<tbody>
+<tr><th>Root</th><td>root</td><td>I · V7</td><td>V · V7</td><td>V</td><td><span class="tb">G</span> <span class="tb">B</span> <span class="tr">D</span> <span class="tb">(F)</span></td></tr>
+<tr><th>1st</th><td>3rd</td><td>I⁶ · V⁶₅</td><td>V¹ · V7¹</td><td>V/3 · G/B</td><td><span class="tb">B</span> <span class="tr">D</span> <span class="tb">(F)</span> <span class="tb">G</span></td></tr>
+<tr><th>2nd</th><td>5th</td><td>I⁶₄ · V⁴₃</td><td>V² · V7²</td><td>V/5 · G/D</td><td><span class="tr">D</span> <span class="tb">(F)</span> <span class="tb">G</span> <span class="tb">B</span></td></tr>
+<tr><th>3rd</th><td>7th</td><td>— · V⁴₂</td><td>V7³</td><td>V7/♭7 · G7/F</td><td><span class="tb">F</span> <span class="tb">G</span> <span class="tb">B</span> <span class="tr">D</span></td></tr>
+</tbody></table>
+<p>An inversion never changes the colours: every note stays on its row; only its hand and octave move.</p></section><div id="rn"></div>
+<section id="tz"><h3>Tonnetz: C major and its P, L, R neighbours</h3><div class="tzrow"><svg id="tzsvg" viewBox="0 0 864 235" role="img" aria-label="Tonnetz"><defs><clipPath id="clip"><rect x="0" y="0" width="864" height="235" rx="8"></rect></clipPath></defs><g clip-path="url(#clip)"><polygon class="t maj" data-id="0" points="-16.0,34.0 48.0,34.0 16.0,89.4"></polygon><polygon class="t maj" data-id="1" points="48.0,34.0 112.0,34.0 80.0,89.4"></polygon><polygon class="t min" data-id="2" points="48.0,34.0 16.0,89.4 80.0,89.4"></polygon><polygon class="t maj" data-id="3" points="112.0,34.0 176.0,34.0 144.0,89.4"></polygon><polygon class="t min" data-id="4" points="112.0,34.0 80.0,89.4 144.0,89.4"></polygon><polygon class="t maj" data-id="5" points="176.0,34.0 240.0,34.0 208.0,89.4"></polygon><polygon class="t min" data-id="6" points="176.0,34.0 144.0,89.4 208.0,89.4"></polygon><polygon class="t maj" data-id="7" points="240.0,34.0 304.0,34.0 272.0,89.4"></polygon><polygon class="t min" data-id="8" points="240.0,34.0 208.0,89.4 272.0,89.4"></polygon><polygon class="t maj" data-id="9" points="304.0,34.0 368.0,34.0 336.0,89.4"></polygon><polygon class="t min" data-id="10" points="304.0,34.0 272.0,89.4 336.0,89.4"></polygon><polygon class="t maj" data-id="11" points="368.0,34.0 432.0,34.0 400.0,89.4"></polygon><polygon class="t min" data-id="12" points="368.0,34.0 336.0,89.4 400.0,89.4"></polygon><polygon class="t maj" data-id="13" points="432.0,34.0 496.0,34.0 464.0,89.4"></polygon><polygon class="t min nbr" data-id="14" points="432.0,34.0 400.0,89.4 464.0,89.4"></polygon><polygon class="t maj" data-id="15" points="496.0,34.0 560.0,34.0 528.0,89.4"></polygon><polygon class="t min" data-id="16" points="496.0,34.0 464.0,89.4 528.0,89.4"></polygon><polygon class="t maj" data-id="17" points="560.0,34.0 624.0,34.0 592.0,89.4"></polygon><polygon class="t min" data-id="18" points="560.0,34.0 528.0,89.4 592.0,89.4"></polygon><polygon class="t maj" data-id="19" points="624.0,34.0 688.0,34.0 656.0,89.4"></polygon><polygon class="t min" data-id="20" points="624.0,34.0 592.0,89.4 656.0,89.4"></polygon><polygon class="t maj" data-id="21" points="688.0,34.0 752.0,34.0 720.0,89.4"></polygon><polygon class="t min" data-id="22" points="688.0,34.0 656.0,89.4 720.0,89.4"></polygon><polygon class="t maj" data-id="23" points="752.0,34.0 816.0,34.0 784.0,89.4"></polygon><polygon class="t min" data-id="24" points="752.0,34.0 720.0,89.4 784.0,89.4"></polygon><polygon class="t maj" data-id="25" points="816.0,34.0 880.0,34.0 848.0,89.4"></polygon><polygon class="t min" data-id="26" points="816.0,34.0 784.0,89.4 848.0,89.4"></polygon><polygon class="t maj" data-id="27" points="16.0,89.4 80.0,89.4 48.0,144.9"></polygon><polygon class="t min" data-id="28" points="16.0,89.4 -16.0,144.9 48.0,144.9"></polygon><polygon class="t maj" data-id="29" points="80.0,89.4 144.0,89.4 112.0,144.9"></polygon><polygon class="t min" data-id="30" points="80.0,89.4 48.0,144.9 112.0,144.9"></polygon><polygon class="t maj" data-id="31" points="144.0,89.4 208.0,89.4 176.0,144.9"></polygon><polygon class="t min" data-id="32" points="144.0,89.4 112.0,144.9 176.0,144.9"></polygon><polygon class="t maj" data-id="33" points="208.0,89.4 272.0,89.4 240.0,144.9"></polygon><polygon class="t min" data-id="34" points="208.0,89.4 176.0,144.9 240.0,144.9"></polygon><polygon class="t maj" data-id="35" points="272.0,89.4 336.0,89.4 304.0,144.9"></polygon><polygon class="t min" data-id="36" points="272.0,89.4 240.0,144.9 304.0,144.9"></polygon><polygon class="t maj" data-id="37" points="336.0,89.4 400.0,89.4 368.0,144.9"></polygon><polygon class="t min" data-id="38" points="336.0,89.4 304.0,144.9 368.0,144.9"></polygon><polygon class="t maj sel" data-id="39" points="400.0,89.4 464.0,89.4 432.0,144.9"></polygon><polygon class="t min nbr" data-id="40" points="400.0,89.4 368.0,144.9 432.0,144.9"></polygon><polygon class="t maj" data-id="41" points="464.0,89.4 528.0,89.4 496.0,144.9"></polygon><polygon class="t min nbr" data-id="42" points="464.0,89.4 432.0,144.9 496.0,144.9"></polygon><polygon class="t maj" data-id="43" points="528.0,89.4 592.0,89.4 560.0,144.9"></polygon><polygon class="t min" data-id="44" points="528.0,89.4 496.0,144.9 560.0,144.9"></polygon><polygon class="t maj" data-id="45" points="592.0,89.4 656.0,89.4 624.0,144.9"></polygon><polygon class="t min" data-id="46" points="592.0,89.4 560.0,144.9 624.0,144.9"></polygon><polygon class="t maj" data-id="47" points="656.0,89.4 720.0,89.4 688.0,144.9"></polygon><polygon class="t min" data-id="48" points="656.0,89.4 624.0,144.9 688.0,144.9"></polygon><polygon class="t maj" data-id="49" points="720.0,89.4 784.0,89.4 752.0,144.9"></polygon><polygon class="t min" data-id="50" points="720.0,89.4 688.0,144.9 752.0,144.9"></polygon><polygon class="t maj" data-id="51" points="784.0,89.4 848.0,89.4 816.0,144.9"></polygon><polygon class="t min" data-id="52" points="784.0,89.4 752.0,144.9 816.0,144.9"></polygon><polygon class="t min" data-id="53" points="848.0,89.4 816.0,144.9 880.0,144.9"></polygon><polygon class="t maj" data-id="54" points="-16.0,144.9 48.0,144.9 16.0,200.3"></polygon><polygon class="t maj" data-id="55" points="48.0,144.9 112.0,144.9 80.0,200.3"></polygon><polygon class="t min" data-id="56" points="48.0,144.9 16.0,200.3 80.0,200.3"></polygon><polygon class="t maj" data-id="57" points="112.0,144.9 176.0,144.9 144.0,200.3"></polygon><polygon class="t min" data-id="58" points="112.0,144.9 80.0,200.3 144.0,200.3"></polygon><polygon class="t maj" data-id="59" points="176.0,144.9 240.0,144.9 208.0,200.3"></polygon><polygon class="t min" data-id="60" points="176.0,144.9 144.0,200.3 208.0,200.3"></polygon><polygon class="t maj" data-id="61" points="240.0,144.9 304.0,144.9 272.0,200.3"></polygon><polygon class="t min" data-id="62" points="240.0,144.9 208.0,200.3 272.0,200.3"></polygon><polygon class="t maj" data-id="63" points="304.0,144.9 368.0,144.9 336.0,200.3"></polygon><polygon class="t min" data-id="64" points="304.0,144.9 272.0,200.3 336.0,200.3"></polygon><polygon class="t maj" data-id="65" points="368.0,144.9 432.0,144.9 400.0,200.3"></polygon><polygon class="t min" data-id="66" points="368.0,144.9 336.0,200.3 400.0,200.3"></polygon><polygon class="t maj" data-id="67" points="432.0,144.9 496.0,144.9 464.0,200.3"></polygon><polygon class="t min" data-id="68" points="432.0,144.9 400.0,200.3 464.0,200.3"></polygon><polygon class="t maj" data-id="69" points="496.0,144.9 560.0,144.9 528.0,200.3"></polygon><polygon class="t min" data-id="70" points="496.0,144.9 464.0,200.3 528.0,200.3"></polygon><polygon class="t maj" data-id="71" points="560.0,144.9 624.0,144.9 592.0,200.3"></polygon><polygon class="t min" data-id="72" points="560.0,144.9 528.0,200.3 592.0,200.3"></polygon><polygon class="t maj" data-id="73" points="624.0,144.9 688.0,144.9 656.0,200.3"></polygon><polygon class="t min" data-id="74" points="624.0,144.9 592.0,200.3 656.0,200.3"></polygon><polygon class="t maj" data-id="75" points="688.0,144.9 752.0,144.9 720.0,200.3"></polygon><polygon class="t min" data-id="76" points="688.0,144.9 656.0,200.3 720.0,200.3"></polygon><polygon class="t maj" data-id="77" points="752.0,144.9 816.0,144.9 784.0,200.3"></polygon><polygon class="t min" data-id="78" points="752.0,144.9 720.0,200.3 784.0,200.3"></polygon><polygon class="t maj" data-id="79" points="816.0,144.9 880.0,144.9 848.0,200.3"></polygon><polygon class="t min" data-id="80" points="816.0,144.9 784.0,200.3 848.0,200.3"></polygon><line class="e5" x1="-16.0" y1="34.0" x2="48.0" y2="34.0"></line><line class="e5" x1="48.0" y1="34.0" x2="112.0" y2="34.0"></line><line class="em3" x1="48.0" y1="34.0" x2="16.0" y2="89.4"></line><line class="e5" x1="112.0" y1="34.0" x2="176.0" y2="34.0"></line><line class="em3" x1="112.0" y1="34.0" x2="80.0" y2="89.4"></line><line class="e5" x1="176.0" y1="34.0" x2="240.0" y2="34.0"></line><line class="em3" x1="176.0" y1="34.0" x2="144.0" y2="89.4"></line><line class="e5" x1="240.0" y1="34.0" x2="304.0" y2="34.0"></line><line class="em3" x1="240.0" y1="34.0" x2="208.0" y2="89.4"></line><line class="e5" x1="304.0" y1="34.0" x2="368.0" y2="34.0"></line><line class="em3" x1="304.0" y1="34.0" x2="272.0" y2="89.4"></line><line class="e5" x1="368.0" y1="34.0" x2="432.0" y2="34.0"></line><line class="em3" x1="368.0" y1="34.0" x2="336.0" y2="89.4"></line><line class="e5" x1="432.0" y1="34.0" x2="496.0" y2="34.0"></line><line class="em3" x1="432.0" y1="34.0" x2="400.0" y2="89.4"></line><line class="e5" x1="496.0" y1="34.0" x2="560.0" y2="34.0"></line><line class="em3" x1="496.0" y1="34.0" x2="464.0" y2="89.4"></line><line class="e5" x1="560.0" y1="34.0" x2="624.0" y2="34.0"></line><line class="em3" x1="560.0" y1="34.0" x2="528.0" y2="89.4"></line><line class="e5" x1="624.0" y1="34.0" x2="688.0" y2="34.0"></line><line class="em3" x1="624.0" y1="34.0" x2="592.0" y2="89.4"></line><line class="e5" x1="688.0" y1="34.0" x2="752.0" y2="34.0"></line><line class="em3" x1="688.0" y1="34.0" x2="656.0" y2="89.4"></line><line class="e5" x1="752.0" y1="34.0" x2="816.0" y2="34.0"></line><line class="em3" x1="752.0" y1="34.0" x2="720.0" y2="89.4"></line><line class="e5" x1="816.0" y1="34.0" x2="880.0" y2="34.0"></line><line class="em3" x1="816.0" y1="34.0" x2="784.0" y2="89.4"></line><line class="em3" x1="880.0" y1="34.0" x2="848.0" y2="89.4"></line><line class="e5" x1="16.0" y1="89.4" x2="80.0" y2="89.4"></line><line class="em3" x1="16.0" y1="89.4" x2="-16.0" y2="144.9"></line><line class="e5" x1="80.0" y1="89.4" x2="144.0" y2="89.4"></line><line class="em3" x1="80.0" y1="89.4" x2="48.0" y2="144.9"></line><line class="e5" x1="144.0" y1="89.4" x2="208.0" y2="89.4"></line><line class="em3" x1="144.0" y1="89.4" x2="112.0" y2="144.9"></line><line class="e5" x1="208.0" y1="89.4" x2="272.0" y2="89.4"></line><line class="em3" x1="208.0" y1="89.4" x2="176.0" y2="144.9"></line><line class="e5" x1="272.0" y1="89.4" x2="336.0" y2="89.4"></line><line class="em3" x1="272.0" y1="89.4" x2="240.0" y2="144.9"></line><line class="e5" x1="336.0" y1="89.4" x2="400.0" y2="89.4"></line><line class="em3" x1="336.0" y1="89.4" x2="304.0" y2="144.9"></line><line class="e5" x1="400.0" y1="89.4" x2="464.0" y2="89.4"></line><line class="em3" x1="400.0" y1="89.4" x2="368.0" y2="144.9"></line><line class="e5" x1="464.0" y1="89.4" x2="528.0" y2="89.4"></line><line class="em3" x1="464.0" y1="89.4" x2="432.0" y2="144.9"></line><line class="e5" x1="528.0" y1="89.4" x2="592.0" y2="89.4"></line><line class="em3" x1="528.0" y1="89.4" x2="496.0" y2="144.9"></line><line class="e5" x1="592.0" y1="89.4" x2="656.0" y2="89.4"></line><line class="em3" x1="592.0" y1="89.4" x2="560.0" y2="144.9"></line><line class="e5" x1="656.0" y1="89.4" x2="720.0" y2="89.4"></line><line class="em3" x1="656.0" y1="89.4" x2="624.0" y2="144.9"></line><line class="e5" x1="720.0" y1="89.4" x2="784.0" y2="89.4"></line><line class="em3" x1="720.0" y1="89.4" x2="688.0" y2="144.9"></line><line class="e5" x1="784.0" y1="89.4" x2="848.0" y2="89.4"></line><line class="em3" x1="784.0" y1="89.4" x2="752.0" y2="144.9"></line><line class="em3" x1="848.0" y1="89.4" x2="816.0" y2="144.9"></line><line class="e5" x1="-16.0" y1="144.9" x2="48.0" y2="144.9"></line><line class="e5" x1="48.0" y1="144.9" x2="112.0" y2="144.9"></line><line class="em3" x1="48.0" y1="144.9" x2="16.0" y2="200.3"></line><line class="e5" x1="112.0" y1="144.9" x2="176.0" y2="144.9"></line><line class="em3" x1="112.0" y1="144.9" x2="80.0" y2="200.3"></line><line class="e5" x1="176.0" y1="144.9" x2="240.0" y2="144.9"></line><line class="em3" x1="176.0" y1="144.9" x2="144.0" y2="200.3"></line><line class="e5" x1="240.0" y1="144.9" x2="304.0" y2="144.9"></line><line class="em3" x1="240.0" y1="144.9" x2="208.0" y2="200.3"></line><line class="e5" x1="304.0" y1="144.9" x2="368.0" y2="144.9"></line><line class="em3" x1="304.0" y1="144.9" x2="272.0" y2="200.3"></line><line class="e5" x1="368.0" y1="144.9" x2="432.0" y2="144.9"></line><line class="em3" x1="368.0" y1="144.9" x2="336.0" y2="200.3"></line><line class="e5" x1="432.0" y1="144.9" x2="496.0" y2="144.9"></line><line class="em3" x1="432.0" y1="144.9" x2="400.0" y2="200.3"></line><line class="e5" x1="496.0" y1="144.9" x2="560.0" y2="144.9"></line><line class="em3" x1="496.0" y1="144.9" x2="464.0" y2="200.3"></line><line class="e5" x1="560.0" y1="144.9" x2="624.0" y2="144.9"></line><line class="em3" x1="560.0" y1="144.9" x2="528.0" y2="200.3"></line><line class="e5" x1="624.0" y1="144.9" x2="688.0" y2="144.9"></line><line class="em3" x1="624.0" y1="144.9" x2="592.0" y2="200.3"></line><line class="e5" x1="688.0" y1="144.9" x2="752.0" y2="144.9"></line><line class="em3" x1="688.0" y1="144.9" x2="656.0" y2="200.3"></line><line class="e5" x1="752.0" y1="144.9" x2="816.0" y2="144.9"></line><line class="em3" x1="752.0" y1="144.9" x2="720.0" y2="200.3"></line><line class="e5" x1="816.0" y1="144.9" x2="880.0" y2="144.9"></line><line class="em3" x1="816.0" y1="144.9" x2="784.0" y2="200.3"></line><line class="em3" x1="880.0" y1="144.9" x2="848.0" y2="200.3"></line><line class="e5" x1="16.0" y1="200.3" x2="80.0" y2="200.3"></line><line class="e5" x1="80.0" y1="200.3" x2="144.0" y2="200.3"></line><line class="e5" x1="144.0" y1="200.3" x2="208.0" y2="200.3"></line><line class="e5" x1="208.0" y1="200.3" x2="272.0" y2="200.3"></line><line class="e5" x1="272.0" y1="200.3" x2="336.0" y2="200.3"></line><line class="e5" x1="336.0" y1="200.3" x2="400.0" y2="200.3"></line><line class="e5" x1="400.0" y1="200.3" x2="464.0" y2="200.3"></line><line class="e5" x1="464.0" y1="200.3" x2="528.0" y2="200.3"></line><line class="e5" x1="528.0" y1="200.3" x2="592.0" y2="200.3"></line><line class="e5" x1="592.0" y1="200.3" x2="656.0" y2="200.3"></line><line class="e5" x1="656.0" y1="200.3" x2="720.0" y2="200.3"></line><line class="e5" x1="720.0" y1="200.3" x2="784.0" y2="200.3"></line><line class="e5" x1="784.0" y1="200.3" x2="848.0" y2="200.3"></line><line class="stripe sr" x1="-16.0" y1="34.0" x2="16.0" y2="89.4"></line><line class="stripe sb" x1="48.0" y1="34.0" x2="80.0" y2="89.4"></line><line class="stripe sr" x1="112.0" y1="34.0" x2="144.0" y2="89.4"></line><line class="stripe sb" x1="176.0" y1="34.0" x2="208.0" y2="89.4"></line><line class="stripe sr" x1="240.0" y1="34.0" x2="272.0" y2="89.4"></line><line class="stripe sb" x1="304.0" y1="34.0" x2="336.0" y2="89.4"></line><line class="stripe sr" x1="368.0" y1="34.0" x2="400.0" y2="89.4"></line><line class="stripe sb" x1="432.0" y1="34.0" x2="464.0" y2="89.4"></line><line class="stripe sr" x1="496.0" y1="34.0" x2="528.0" y2="89.4"></line><line class="stripe sb" x1="560.0" y1="34.0" x2="592.0" y2="89.4"></line><line class="stripe sr" x1="624.0" y1="34.0" x2="656.0" y2="89.4"></line><line class="stripe sb" x1="688.0" y1="34.0" x2="720.0" y2="89.4"></line><line class="stripe sr" x1="752.0" y1="34.0" x2="784.0" y2="89.4"></line><line class="stripe sb" x1="816.0" y1="34.0" x2="848.0" y2="89.4"></line><line class="stripe sr" x1="16.0" y1="89.4" x2="48.0" y2="144.9"></line><line class="stripe sb" x1="80.0" y1="89.4" x2="112.0" y2="144.9"></line><line class="stripe sr" x1="144.0" y1="89.4" x2="176.0" y2="144.9"></line><line class="stripe sb" x1="208.0" y1="89.4" x2="240.0" y2="144.9"></line><line class="stripe sr" x1="272.0" y1="89.4" x2="304.0" y2="144.9"></line><line class="stripe sb" x1="336.0" y1="89.4" x2="368.0" y2="144.9"></line><line class="stripe sr" x1="400.0" y1="89.4" x2="432.0" y2="144.9"></line><line class="stripe sb" x1="464.0" y1="89.4" x2="496.0" y2="144.9"></line><line class="stripe sr" x1="528.0" y1="89.4" x2="560.0" y2="144.9"></line><line class="stripe sb" x1="592.0" y1="89.4" x2="624.0" y2="144.9"></line><line class="stripe sr" x1="656.0" y1="89.4" x2="688.0" y2="144.9"></line><line class="stripe sb" x1="720.0" y1="89.4" x2="752.0" y2="144.9"></line><line class="stripe sr" x1="784.0" y1="89.4" x2="816.0" y2="144.9"></line><line class="stripe sb" x1="848.0" y1="89.4" x2="880.0" y2="144.9"></line><line class="stripe sb" x1="-16.0" y1="144.9" x2="16.0" y2="200.3"></line><line class="stripe sr" x1="48.0" y1="144.9" x2="80.0" y2="200.3"></line><line class="stripe sb" x1="112.0" y1="144.9" x2="144.0" y2="200.3"></line><line class="stripe sr" x1="176.0" y1="144.9" x2="208.0" y2="200.3"></line><line class="stripe sb" x1="240.0" y1="144.9" x2="272.0" y2="200.3"></line><line class="stripe sr" x1="304.0" y1="144.9" x2="336.0" y2="200.3"></line><line class="stripe sb" x1="368.0" y1="144.9" x2="400.0" y2="200.3"></line><line class="stripe sr" x1="432.0" y1="144.9" x2="464.0" y2="200.3"></line><line class="stripe sb" x1="496.0" y1="144.9" x2="528.0" y2="200.3"></line><line class="stripe sr" x1="560.0" y1="144.9" x2="592.0" y2="200.3"></line><line class="stripe sb" x1="624.0" y1="144.9" x2="656.0" y2="200.3"></line><line class="stripe sr" x1="688.0" y1="144.9" x2="720.0" y2="200.3"></line><line class="stripe sb" x1="752.0" y1="144.9" x2="784.0" y2="200.3"></line><line class="stripe sr" x1="816.0" y1="144.9" x2="848.0" y2="200.3"></line><text class="tl maj" x="16.0" y="56.5" data-id="0">D</text><text class="tl maj" x="80.0" y="56.5" data-id="1">A</text><text class="tl min" x="48.0" y="77.9" data-id="2">F♯m</text><text class="tl maj" x="144.0" y="56.5" data-id="3">E</text><text class="tl min" x="112.0" y="77.9" data-id="4">D♭m</text><text class="tl maj" x="208.0" y="56.5" data-id="5">B</text><text class="tl min" x="176.0" y="77.9" data-id="6">A♭m</text><text class="tl maj" x="272.0" y="56.5" data-id="7">F♯</text><text class="tl min" x="240.0" y="77.9" data-id="8">E♭m</text><text class="tl maj" x="336.0" y="56.5" data-id="9">D♭</text><text class="tl min" x="304.0" y="77.9" data-id="10">B♭m</text><text class="tl maj" x="400.0" y="56.5" data-id="11">A♭</text><text class="tl min" x="368.0" y="77.9" data-id="12">Fm</text><text class="tl maj" x="464.0" y="56.5" data-id="13">E♭</text><text class="tl min" x="432.0" y="77.9" data-id="14">Cm</text><text class="tl maj" x="528.0" y="56.5" data-id="15">B♭</text><text class="tl min" x="496.0" y="77.9" data-id="16">Gm</text><text class="tl maj" x="592.0" y="56.5" data-id="17">F</text><text class="tl min" x="560.0" y="77.9" data-id="18">Dm</text><text class="tl maj" x="656.0" y="56.5" data-id="19">C</text><text class="tl min" x="624.0" y="77.9" data-id="20">Am</text><text class="tl maj" x="720.0" y="56.5" data-id="21">G</text><text class="tl min" x="688.0" y="77.9" data-id="22">Em</text><text class="tl maj" x="784.0" y="56.5" data-id="23">D</text><text class="tl min" x="752.0" y="77.9" data-id="24">Bm</text><text class="tl maj" x="848.0" y="56.5" data-id="25">A</text><text class="tl min" x="816.0" y="77.9" data-id="26">F♯m</text><text class="tl maj" x="48.0" y="111.9" data-id="27">F♯</text><text class="tl min" x="16.0" y="133.4" data-id="28">E♭m</text><text class="tl maj" x="112.0" y="111.9" data-id="29">D♭</text><text class="tl min" x="80.0" y="133.4" data-id="30">B♭m</text><text class="tl maj" x="176.0" y="111.9" data-id="31">A♭</text><text class="tl min" x="144.0" y="133.4" data-id="32">Fm</text><text class="tl maj" x="240.0" y="111.9" data-id="33">E♭</text><text class="tl min" x="208.0" y="133.4" data-id="34">Cm</text><text class="tl maj" x="304.0" y="111.9" data-id="35">B♭</text><text class="tl min" x="272.0" y="133.4" data-id="36">Gm</text><text class="tl maj" x="368.0" y="111.9" data-id="37">F</text><text class="tl min" x="336.0" y="133.4" data-id="38">Dm</text><text class="tl maj" x="432.0" y="111.9" data-id="39">C</text><text class="tl min" x="400.0" y="133.4" data-id="40">Am</text><text class="tl maj" x="496.0" y="111.9" data-id="41">G</text><text class="tl min" x="464.0" y="133.4" data-id="42">Em</text><text class="tl maj" x="560.0" y="111.9" data-id="43">D</text><text class="tl min" x="528.0" y="133.4" data-id="44">Bm</text><text class="tl maj" x="624.0" y="111.9" data-id="45">A</text><text class="tl min" x="592.0" y="133.4" data-id="46">F♯m</text><text class="tl maj" x="688.0" y="111.9" data-id="47">E</text><text class="tl min" x="656.0" y="133.4" data-id="48">D♭m</text><text class="tl maj" x="752.0" y="111.9" data-id="49">B</text><text class="tl min" x="720.0" y="133.4" data-id="50">A♭m</text><text class="tl maj" x="816.0" y="111.9" data-id="51">F♯</text><text class="tl min" x="784.0" y="133.4" data-id="52">E♭m</text><text class="tl min" x="848.0" y="133.4" data-id="53">B♭m</text><text class="tl maj" x="16.0" y="167.4" data-id="54">E♭</text><text class="tl maj" x="80.0" y="167.4" data-id="55">B♭</text><text class="tl min" x="48.0" y="188.8" data-id="56">Gm</text><text class="tl maj" x="144.0" y="167.4" data-id="57">F</text><text class="tl min" x="112.0" y="188.8" data-id="58">Dm</text><text class="tl maj" x="208.0" y="167.4" data-id="59">C</text><text class="tl min" x="176.0" y="188.8" data-id="60">Am</text><text class="tl maj" x="272.0" y="167.4" data-id="61">G</text><text class="tl min" x="240.0" y="188.8" data-id="62">Em</text><text class="tl maj" x="336.0" y="167.4" data-id="63">D</text><text class="tl min" x="304.0" y="188.8" data-id="64">Bm</text><text class="tl maj" x="400.0" y="167.4" data-id="65">A</text><text class="tl min" x="368.0" y="188.8" data-id="66">F♯m</text><text class="tl maj" x="464.0" y="167.4" data-id="67">E</text><text class="tl min" x="432.0" y="188.8" data-id="68">D♭m</text><text class="tl maj" x="528.0" y="167.4" data-id="69">B</text><text class="tl min" x="496.0" y="188.8" data-id="70">A♭m</text><text class="tl maj" x="592.0" y="167.4" data-id="71">F♯</text><text class="tl min" x="560.0" y="188.8" data-id="72">E♭m</text><text class="tl maj" x="656.0" y="167.4" data-id="73">D♭</text><text class="tl min" x="624.0" y="188.8" data-id="74">B♭m</text><text class="tl maj" x="720.0" y="167.4" data-id="75">A♭</text><text class="tl min" x="688.0" y="188.8" data-id="76">Fm</text><text class="tl maj" x="784.0" y="167.4" data-id="77">E♭</text><text class="tl min" x="752.0" y="188.8" data-id="78">Cm</text><text class="tl maj" x="848.0" y="167.4" data-id="79">B♭</text><text class="tl min" x="816.0" y="188.8" data-id="80">Gm</text><g class="node nr" data-k="-6,0"><circle cx="-16.0" cy="34.0" r="17"></circle><text x="-16.0" y="39.0">D</text></g><g class="node nb" data-k="-5,0"><circle cx="48.0" cy="34.0" r="17"></circle><text x="48.0" y="39.0">A</text></g><g class="node nr" data-k="-4,0"><circle cx="112.0" cy="34.0" r="17"></circle><text x="112.0" y="39.0">E</text></g><g class="node nb" data-k="-3,0"><circle cx="176.0" cy="34.0" r="17"></circle><text x="176.0" y="39.0">B</text></g><g class="node nr" data-k="-2,0"><circle cx="240.0" cy="34.0" r="17"></circle><text x="240.0" y="39.0">F♯</text></g><g class="node nb" data-k="-1,0"><circle cx="304.0" cy="34.0" r="17"></circle><text x="304.0" y="39.0">D♭</text></g><g class="node nr" data-k="0,0"><circle cx="368.0" cy="34.0" r="17"></circle><text x="368.0" y="39.0">A♭</text></g><g class="node nb" data-k="1,0"><circle cx="432.0" cy="34.0" r="17"></circle><text x="432.0" y="39.0">E♭</text></g><g class="node nr" data-k="2,0"><circle cx="496.0" cy="34.0" r="17"></circle><text x="496.0" y="39.0">B♭</text></g><g class="node nb" data-k="3,0"><circle cx="560.0" cy="34.0" r="17"></circle><text x="560.0" y="39.0">F</text></g><g class="node nr" data-k="4,0"><circle cx="624.0" cy="34.0" r="17"></circle><text x="624.0" y="39.0">C</text></g><g class="node nb" data-k="5,0"><circle cx="688.0" cy="34.0" r="17"></circle><text x="688.0" y="39.0">G</text></g><g class="node nr" data-k="6,0"><circle cx="752.0" cy="34.0" r="17"></circle><text x="752.0" y="39.0">D</text></g><g class="node nb" data-k="7,0"><circle cx="816.0" cy="34.0" r="17"></circle><text x="816.0" y="39.0">A</text></g><g class="node nr" data-k="8,0"><circle cx="880.0" cy="34.0" r="17"></circle><text x="880.0" y="39.0">E</text></g><g class="node nr" data-k="-6,1"><circle cx="16.0" cy="89.4" r="17"></circle><text x="16.0" y="94.4">F♯</text></g><g class="node nb" data-k="-5,1"><circle cx="80.0" cy="89.4" r="17"></circle><text x="80.0" y="94.4">D♭</text></g><g class="node nr" data-k="-4,1"><circle cx="144.0" cy="89.4" r="17"></circle><text x="144.0" y="94.4">A♭</text></g><g class="node nb" data-k="-3,1"><circle cx="208.0" cy="89.4" r="17"></circle><text x="208.0" y="94.4">E♭</text></g><g class="node nr" data-k="-2,1"><circle cx="272.0" cy="89.4" r="17"></circle><text x="272.0" y="94.4">B♭</text></g><g class="node nb" data-k="-1,1"><circle cx="336.0" cy="89.4" r="17"></circle><text x="336.0" y="94.4">F</text></g><g class="node nr on" data-k="0,1"><circle cx="400.0" cy="89.4" r="17"></circle><text x="400.0" y="94.4">C</text></g><g class="node nb on" data-k="1,1"><circle cx="464.0" cy="89.4" r="17"></circle><text x="464.0" y="94.4">G</text></g><g class="node nr" data-k="2,1"><circle cx="528.0" cy="89.4" r="17"></circle><text x="528.0" y="94.4">D</text></g><g class="node nb" data-k="3,1"><circle cx="592.0" cy="89.4" r="17"></circle><text x="592.0" y="94.4">A</text></g><g class="node nr" data-k="4,1"><circle cx="656.0" cy="89.4" r="17"></circle><text x="656.0" y="94.4">E</text></g><g class="node nb" data-k="5,1"><circle cx="720.0" cy="89.4" r="17"></circle><text x="720.0" y="94.4">B</text></g><g class="node nr" data-k="6,1"><circle cx="784.0" cy="89.4" r="17"></circle><text x="784.0" y="94.4">F♯</text></g><g class="node nb" data-k="7,1"><circle cx="848.0" cy="89.4" r="17"></circle><text x="848.0" y="94.4">D♭</text></g><g class="node nb" data-k="-7,2"><circle cx="-16.0" cy="144.9" r="17"></circle><text x="-16.0" y="149.9">E♭</text></g><g class="node nr" data-k="-6,2"><circle cx="48.0" cy="144.9" r="17"></circle><text x="48.0" y="149.9">B♭</text></g><g class="node nb" data-k="-5,2"><circle cx="112.0" cy="144.9" r="17"></circle><text x="112.0" y="149.9">F</text></g><g class="node nr" data-k="-4,2"><circle cx="176.0" cy="144.9" r="17"></circle><text x="176.0" y="149.9">C</text></g><g class="node nb" data-k="-3,2"><circle cx="240.0" cy="144.9" r="17"></circle><text x="240.0" y="149.9">G</text></g><g class="node nr" data-k="-2,2"><circle cx="304.0" cy="144.9" r="17"></circle><text x="304.0" y="149.9">D</text></g><g class="node nb" data-k="-1,2"><circle cx="368.0" cy="144.9" r="17"></circle><text x="368.0" y="149.9">A</text></g><g class="node nr on" data-k="0,2"><circle cx="432.0" cy="144.9" r="17"></circle><text x="432.0" y="149.9">E</text></g><g class="node nb" data-k="1,2"><circle cx="496.0" cy="144.9" r="17"></circle><text x="496.0" y="149.9">B</text></g><g class="node nr" data-k="2,2"><circle cx="560.0" cy="144.9" r="17"></circle><text x="560.0" y="149.9">F♯</text></g><g class="node nb" data-k="3,2"><circle cx="624.0" cy="144.9" r="17"></circle><text x="624.0" y="149.9">D♭</text></g><g class="node nr" data-k="4,2"><circle cx="688.0" cy="144.9" r="17"></circle><text x="688.0" y="149.9">A♭</text></g><g class="node nb" data-k="5,2"><circle cx="752.0" cy="144.9" r="17"></circle><text x="752.0" y="149.9">E♭</text></g><g class="node nr" data-k="6,2"><circle cx="816.0" cy="144.9" r="17"></circle><text x="816.0" y="149.9">B♭</text></g><g class="node nb" data-k="7,2"><circle cx="880.0" cy="144.9" r="17"></circle><text x="880.0" y="149.9">F</text></g><g class="node nb" data-k="-7,3"><circle cx="16.0" cy="200.3" r="17"></circle><text x="16.0" y="205.3">G</text></g><g class="node nr" data-k="-6,3"><circle cx="80.0" cy="200.3" r="17"></circle><text x="80.0" y="205.3">D</text></g><g class="node nb" data-k="-5,3"><circle cx="144.0" cy="200.3" r="17"></circle><text x="144.0" y="205.3">A</text></g><g class="node nr" data-k="-4,3"><circle cx="208.0" cy="200.3" r="17"></circle><text x="208.0" y="205.3">E</text></g><g class="node nb" data-k="-3,3"><circle cx="272.0" cy="200.3" r="17"></circle><text x="272.0" y="205.3">B</text></g><g class="node nr" data-k="-2,3"><circle cx="336.0" cy="200.3" r="17"></circle><text x="336.0" y="205.3">F♯</text></g><g class="node nb" data-k="-1,3"><circle cx="400.0" cy="200.3" r="17"></circle><text x="400.0" y="205.3">D♭</text></g><g class="node nr" data-k="0,3"><circle cx="464.0" cy="200.3" r="17"></circle><text x="464.0" y="205.3">A♭</text></g><g class="node nb" data-k="1,3"><circle cx="528.0" cy="200.3" r="17"></circle><text x="528.0" y="205.3">E♭</text></g><g class="node nr" data-k="2,3"><circle cx="592.0" cy="200.3" r="17"></circle><text x="592.0" y="205.3">B♭</text></g><g class="node nb" data-k="3,3"><circle cx="656.0" cy="200.3" r="17"></circle><text x="656.0" y="205.3">F</text></g><g class="node nr" data-k="4,3"><circle cx="720.0" cy="200.3" r="17"></circle><text x="720.0" y="205.3">C</text></g><g class="node nb" data-k="5,3"><circle cx="784.0" cy="200.3" r="17"></circle><text x="784.0" y="205.3">G</text></g><g class="node nr" data-k="6,3"><circle cx="848.0" cy="200.3" r="17"></circle><text x="848.0" y="205.3">D</text></g><g id="marks"><circle class="mkbg" cx="432" cy="78.9" r="9"></circle><text class="mk" x="432" y="83.4">P</text><circle class="mkbg" cx="400" cy="134.4" r="9"></circle><text class="mk" x="400" y="138.9">R</text><circle class="mkbg" cx="464" cy="134.4" r="9"></circle><text class="mk" x="464" y="138.9">L</text></g></g></svg><ul>
+<li>Rows: fifths. Down-right: major thirds, each one string row (red or blue stripe). Down-left: minor thirds.</li>
+<li>▽ major, △ minor. Every triad is 2 notes on one stripe + 1 on the next.</li>
+<li><b>R</b> C → Am: G → A, whole step, same row.</li>
+<li><b>P</b> C → Cm: E → E♭, half step, changes row.</li>
+<li><b>L</b> C → Em: C → B, half step, changes row.</li></ul></div></section>
+</main><script>
+const IV=['R','♭2 ♭9','2 9','m3 ♯9','3','4 11','♭5 ♯11','5','♭6 ♭13','6 13','♭7','7'];
+const CH=[
+['Triads',[['5','I5',[0,7]],['','I',[0,4,7]],['m','i',[0,3,7]],['°','i°',[0,3,6]],['+','I+',[0,4,8]],['sus2','Isus2',[0,2,7]],['sus4','Isus4',[0,5,7]]]],
+['6ths and added notes',[['6','I6',[0,4,7,9]],['m6','i6',[0,3,7,9]],['add9','Iadd9',[0,4,7,14]],['m(add9)','i(add9)',[0,3,7,14]],['6/9','I6/9',[0,4,7,9,14]]]],
+['7ths',[['maj7','Imaj7',[0,4,7,11]],['7','I7',[0,4,7,10]],['m7','i7',[0,3,7,10]],['m(maj7)','i(maj7)',[0,3,7,11]],['ø7','iø7',[0,3,6,10]],['°7','i°7',[0,3,6,9]],['7sus4','I7sus4',[0,5,7,10]],['maj7♯5','I+maj7',[0,4,8,11]],['maj7♭5','Imaj7♭5',[0,4,6,11]],['7♯5','I+7',[0,4,8,10]],['7♭5','I7♭5',[0,4,6,10]]]],
+['9ths',[['maj9','Imaj9',[0,4,7,11,14]],['9','I9',[0,4,7,10,14]],['m9','i9',[0,3,7,10,14]],['m(maj9)','i(maj9)',[0,3,7,11,14]],['ø9','iø9',[0,3,6,10,14]],['9sus4','I9sus4',[0,5,7,10,14]],['7♭9','I7♭9',[0,4,7,10,13]],['7♯9','I7♯9',[0,4,7,10,15]],['9♯5','I+9',[0,4,8,10,14]],['9♭5','I9♭5',[0,4,6,10,14]],['7sus4♭9','I7sus4♭9',[0,5,7,10,13]]]],
+['11ths',[['11','I11',[0,7,10,14,17]],['m11','i11',[0,3,7,10,14,17]],['maj7♯11','Imaj7♯11',[0,4,7,11,18]],['7♯11','I7♯11',[0,4,7,10,18]],['maj9♯11','Imaj9♯11',[0,4,7,11,14,18]],['9♯11','I9♯11',[0,4,7,10,14,18]]]],
+['13ths',[['maj13','Imaj13',[0,4,7,11,14,21]],['13','I13',[0,4,7,10,14,21]],['m13','i13',[0,3,7,10,14,17,21]],['13♭9','I13♭9',[0,4,7,10,13,21]],['13♯11','I13♯11',[0,4,7,10,14,18,21]],['7♭9♭13','I7♭9♭13',[0,4,7,10,13,20]],['7♯9♭13','I7♯9♭13',[0,4,7,10,15,20]]]],
+['Altered and quartal',[['7alt','I7alt',[0,4,10,13,15,18,20]],['7♯9♯5','I+7♯9',[0,4,8,10,15]],[' quartal','I quartal',[0,5,10,15]],[' So What','I So What',[0,5,10,15,19]]]]];
+const DEGS={0:0,2:1,3:2,4:2,5:3,6:4,7:4,8:4,9:5,10:6,11:6,13:1,14:1,15:1,17:3,18:3,19:4,20:5,21:5};
+const LET='CDEFGAB',NATP=[0,2,4,5,7,9,11],ACCN={0:'',1:'♯',2:'𝄪',11:'♭',10:'𝄫'};
+function spell(r,x,q){
+  const rl=LET.indexOf(KEYNAME[r][0]),d=(x===15&&q)?2:DEGS[x],li=(rl+d)%7,pc=(r+x)%12;
+  return LET[li]+ACCN[(pc-NATP[li]+12)%12];
+}
+const KEYNAME=['C','D♭','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];
+function setRoot(r){
+  for(let i=0;i<12;i++){const pc=(7*i)%12,iv=(pc-r+12)%12,t=document.getElementById('iv'+i),w=document.getElementById('iw'+i);
+    t.textContent=IV[iv];t.setAttribute('class','ivl '+(pc%2?'tb':'tr')+(iv===0?' on':''));w.setAttribute('class','iring'+(iv===0?' on':''));}
+  document.querySelectorAll('.pick').forEach(p=>p.classList.toggle('sel',+p.dataset.pc===r));
+  document.getElementById('rootname').textContent=KEYNAME[r];
+  let h='';
+  for(const [sec,rows] of CH){
+    h+='<h3'+(sec==='9ths'?' class="colbrk"':'')+'>'+sec+'</h3><table>';
+    for(const [suf,num,iv] of rows){
+      const c=r%2?'tb':'tr',same=iv.filter(x=>x%2===0).length;
+      const q=suf.indexOf('quartal')>=0||suf.indexOf('So What')>=0;
+      const notes=iv.map(x=>'<span class="'+((r+x)%2?'tb':'tr')+'">'+spell(r,x,q)+'</span>').join(' ');
+      h+='<tr><th>'+num+'</th><td class="'+c+'">'+KEYNAME[r]+suf+'</td><td class="nt">'+notes+'</td><td>'+iv.map(x=>'<i class="'+((r+x)%2?'db':'dr')+'"></i>').join('')+'</td><td class="sp">'+same+'+'+(iv.length-same)+'</td></tr>';}
+    h+='</table>';
+    if(sec==='7ths')h+='<div class="tznote"><h3>Reading the Tonnetz</h3><ul><li>Rows: fifths. Down-right: major thirds, each one string row (red or blue stripe). Down-left: minor thirds.</li><li>▽ major, △ minor. Every triad is 2 notes on one stripe + 1 on the next.</li><li><b>R</b> C → Am: G → A, whole step, same row.</li><li><b>P</b> C → Cm: E → E♭, half step, changes row.</li><li><b>L</b> C → Em: C → B, half step, changes row.</li></ul></div>';}
+  document.getElementById('rn').innerHTML=h;
+}
+document.querySelectorAll('.pick').forEach(p=>p.addEventListener('click',()=>setRoot(+p.dataset.pc)));
+setRoot(0);
+</script></body></html>
