@@ -98,6 +98,11 @@ nav a:hover, nav a:focus-visible { color: var(--crow); }
 .say .line span { display: block; } .say .line span:first-child { color: var(--crow); } .say .line span:last-child { color: var(--frow); }
 .say .on { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
 @media (max-width: 520px) { .say { padding: 18px 14px 14px; min-height: 120px; } .say .line { font-size: 1.12rem; } }
+.microw { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; align-items: start; }
+#mic table.fit td:first-child { white-space: nowrap; }
+.micfig { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.micfig img { width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 3px; background: #f8f9f6; }
+@media (max-width: 760px) { .microw { grid-template-columns: minmax(0, 1fr); } .micfig { max-width: 300px; } }
 .model { padding: 22px 18px; display: flex; flex-direction: column; gap: 12px; background: var(--panel); min-width: 0; }
 .model dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; margin: 0; font-size: .86rem; }
 .model dt { color: var(--muted); }
@@ -2479,10 +2484,12 @@ text{white-space: pre}
       <h2>Amplify your xharp</h2>
       <p class="lede">A harp is quiet beside a band, a choir or a room full of people. These are the ways to make an xharp louder that are planned as options. None has been fitted to an xharp yet, so nothing here is a tested result.</p>
       <div class="offers">
-        <div class="offer"><h3>Pickup-ready</h3><span class="price mono">Every harp</span><p>The output jack hole is cut by the CNC and the pickup positions are marked inside the box, behind the hand-access sound hole. Fit a pickup the day you buy the harp or years later, with no drilling.</p><span class="note">Planned as standard</span></div>
+        <div class="offer"><h3>Pickup-ready</h3><span class="price mono">Every harp</span><p>The output jack hole is cut by the CNC, in the back of the box where a hand reaches it through the sound hole, and closed with a plug until it is needed. Fit a pickup the day you buy the harp or years later, with no drilling.</p><span class="note">Planned as standard</span></div>
         <div class="offer"><h3>Pickup fitted</h3><span class="price mono">Option</span><p>Contact pickups glued under the soundboard along the two soundbars and wired to the jack. Plug in like an acoustic guitar. Nothing shows from the front and nothing clips on.</p><span class="note">The most resistant to feedback on a loud stage</span></div>
         <div class="offer"><h3>Clip-on mic</h3><span class="price mono">Option</span><p>A small condenser microphone on a gooseneck, clipped at the sound hole. It hears the air in the box as well as the board, so it sounds the most like the harp does in the room.</p><span class="note">The most natural sound; best in quiet rooms and for recording</span></div>
       </div>
+      <div class="microw">
+      <figure class="micfig"><picture><source srcset="mic.png" media="(prefers-reduced-motion: reduce)"><img src="mic.gif" width="436" height="676" loading="lazy" alt="Animation in four steps: the jack hole in the back of the soundbox, four pickups under the soundboard, their leads running inside to the jack, and a cable from the jack to an amplifier."></picture><figcaption class="note">The plan for the xharp-82, drawn, not yet built.</figcaption></figure>
       <div class="fitwrap"><table class="fit">
         <thead><tr><th>Harp</th><th>Planned pickup</th><th>Suits</th></tr></thead>
         <tbody>
@@ -2493,6 +2500,7 @@ text{white-space: pre}
           <tr><td>xharp-82</td><td>Four pickups with a preamp; add a clip-on mic to blend</td><td>Church, stage, recording</td></tr>
         </tbody>
       </table></div>
+      </div>
       <p><a class="btn" href="#order">Tell me how you play</a></p>
     </div>
   </section>
